@@ -1,1 +1,1 @@
-export { getCounter } from './counter'
+export { getTodos } from './todos'

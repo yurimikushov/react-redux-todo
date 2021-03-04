@@ -1,1 +1,1 @@
-export { increment, decrement } from './counter'
+export { addTodo, deleteTodo } from './todos'

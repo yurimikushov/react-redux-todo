@@ -1,23 +1,28 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { getCounter } from './store/selectors'
-import { increment, decrement } from './store/actions'
+import { useSelector } from 'react-redux'
+import { getTodos } from './store/selectors'
 import './App.css'
 
 const App = () => {
-  const counter = useSelector(getCounter())
-  const dispatch = useDispatch()
+  const todos = useSelector(getTodos())
 
   return (
-    <>
-      <span>Count: {counter}</span>
-      <button className='increment' onClick={() => dispatch(increment())}>
-        +
-      </button>
-      <button className='decrement' onClick={() => dispatch(decrement())}>
-        -
-      </button>
-    </>
+    <div className='container'>
+      <header className='todo-title title'>Todo list</header>
+      <div className='todo-list block'>
+        {todos.map((todo) => (
+          <div className='todo-item box' key={todo.id}>
+            <input className='todo-item__completed' type='checkbox' />
+            <input
+              className='todo-item__title input'
+              type='text'
+              value={todo.title}
+            />
+            <button className='todo-item__delete delete is-small'></button>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 export default App
