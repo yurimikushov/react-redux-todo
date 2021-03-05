@@ -7,9 +7,9 @@ const App = () => {
   const todos = useSelector(getTodos())
 
   return (
-    <div className='container'>
+    <div className='todo-container container'>
       <header className='todo-title title'>Todo list</header>
-      <div className='todo-list block'>
+      <div className='todo-items block'>
         {todos.map((todo) => (
           <div className='todo-item box' key={todo.id}>
             <input className='todo-item__completed' type='checkbox' />
