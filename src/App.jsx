@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getTodos } from './store/selectors'
-import { fetchTodos, addTodo, deleteTodo } from './store/actions'
+import { fetchTodos, deleteTodo } from './store/actions'
 import TodoHeader from './components/TodoHeader'
-import AddTodoForm from './components/AddTodoForm'
+import AddTodoForm from './containers/AddTodoForm'
 import TodoItems from './components/TodoItems'
 import './App.css'
 
@@ -18,9 +18,7 @@ const App = () => {
   return (
     <div className='todo-container container'>
       <TodoHeader />
-      <AddTodoForm
-        addTodo={(newTodoTitle) => dispatch(addTodo(newTodoTitle))}
-      />
+      <AddTodoForm />
       <TodoItems
         todos={todos}
         deleteTodo={(todoId) => dispatch(deleteTodo(todoId))}
