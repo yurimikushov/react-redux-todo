@@ -1,1 +1,3 @@
-export { addTodo, deleteTodo } from './todos'
+export { fetchTodos } from './fetchTodos'
+export { addTodo } from './addTodo'
+export { deleteTodo } from './deleteTodo'

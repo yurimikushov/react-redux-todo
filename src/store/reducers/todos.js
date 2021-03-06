@@ -1,23 +1,29 @@
 import { nanoid } from 'nanoid'
-import { ADD_TODO, DELETE_TODO } from '../actionTypes'
+import {
+  FETCH_TODOS_LOADING,
+  FETCH_TODOS_SUCCESS,
+  FETCH_TODOS_ERROR,
+  ADD_TODO,
+  DELETE_TODO,
+} from '../actionTypes'
 
-const initialState = [
-  {
-    id: nanoid(),
-    title: 'Buy a milk',
-    completed: false,
-  },
-  {
-    id: nanoid(),
-    title: 'Buy a flour',
-    completed: false,
-  },
-  {
-    id: nanoid(),
-    title: 'Buy a milk',
-    completed: false,
-  },
-]
+const initialState = {
+  data: [],
+  isLoading: false,
+  error: '',
+}
+
+const fetchTodosLoading = (state) => {
+  return { ...state, isLoading: true }
+}
+
+const fetchTodosSuccess = (state, { todos }) => {
+  return { ...state, data: todos, isLoading: false }
+}
+
+const fetchTodosError = (state, { errorMessage }) => {
+  return { ...state, isLoading: false, error: errorMessage }
+}
 
 const addTodo = (state, { title }) => {
   const newTodo = {
@@ -26,15 +32,21 @@ const addTodo = (state, { title }) => {
     completed: false,
   }
 
-  return [...state, newTodo]
+  return { ...state, data: [...state.data, newTodo] }
 }
 
 const deleteTodo = (state, { id }) => {
-  return state.filter((todo) => todo.id !== id)
+  return { ...state, data: state.data.filter((todo) => todo.id !== id) }
 }
 
 const counterReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case FETCH_TODOS_LOADING:
+      return fetchTodosLoading(state)
+    case FETCH_TODOS_SUCCESS:
+      return fetchTodosSuccess(state, payload)
+    case FETCH_TODOS_ERROR:
+      return fetchTodosError(state, payload)
     case ADD_TODO:
       return addTodo(state, payload)
     case DELETE_TODO:
