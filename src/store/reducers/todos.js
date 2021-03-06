@@ -3,6 +3,7 @@ import {
   FETCH_TODOS_LOADING,
   FETCH_TODOS_SUCCESS,
   FETCH_TODOS_ERROR,
+  TOGGLE_TODO,
   ADD_TODO,
   DELETE_TODO,
 } from '../actionTypes'
@@ -31,6 +32,14 @@ const fetchTodosError = (state, { errorMessage }) => {
   return { ...state, isLoading: false, error: errorMessage }
 }
 
+const toggleTodo = (state, { id }) => {
+  const todos = state.data.map((todo) =>
+    todo.id === id ? { ...todo, completed: !todo.completed } : todo
+  )
+
+  return { ...state, data: [...todos] }
+}
+
 const addTodo = (state, { title }) => {
   const newTodo = {
     id: nanoid(),
@@ -53,6 +62,8 @@ const counterReducer = (state = initialState, { type, payload }) => {
       return fetchTodosSuccess(state, payload)
     case FETCH_TODOS_ERROR:
       return fetchTodosError(state, payload)
+    case TOGGLE_TODO:
+      return toggleTodo(state, payload)
     case ADD_TODO:
       return addTodo(state, payload)
     case DELETE_TODO:

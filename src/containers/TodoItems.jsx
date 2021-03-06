@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { isTodosLoading, getTodos } from '../store/selectors'
-import { deleteTodo } from '../store/actions'
+import { toggleTodo, deleteTodo } from '../store/actions'
 import TodoItems from '../components/TodoItems'
 
 const TodoItemsContainer = () => {
@@ -13,6 +13,7 @@ const TodoItemsContainer = () => {
     <TodoItems
       isLoading={isLoading}
       todos={todos}
+      toggleTodo={(todoId) => dispatch(toggleTodo(todoId))}
       deleteTodo={(todoId) => dispatch(deleteTodo(todoId))}
     />
   )

@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Loader from './Loader'
 import TodoItem from './TodoItem'
+import { toggleTodo } from '../store/actions'
 
-const TodoItems = ({ isLoading, todos, deleteTodo }) => {
+const TodoItems = ({ isLoading, todos, toggleTodo, deleteTodo }) => {
   if (isLoading) {
     return <Loader />
   }
@@ -16,6 +17,7 @@ const TodoItems = ({ isLoading, todos, deleteTodo }) => {
             key={todo.id}
             id={todo.id}
             title={todo.title}
+            toggleTodo={() => toggleTodo(todo.id)}
             deleteTodo={() => deleteTodo(todo.id)}
           />
         ))
@@ -36,6 +38,7 @@ TodoItems.propTypes = {
       title: PropTypes.string.isRequired,
     })
   ),
+  toggleTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
 }
 
