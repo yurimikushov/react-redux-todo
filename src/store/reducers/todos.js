@@ -19,12 +19,6 @@ const fetchTodosLoading = (state) => {
 }
 
 const fetchTodosSuccess = (state, { todos }) => {
-  todos = todos.map((todo) => ({
-    id: nanoid(),
-    title: todo.title,
-    completed: todo.completed,
-  }))
-
   return { ...state, data: todos, isLoading: false }
 }
 

@@ -1,6 +1,34 @@
+import { nanoid } from 'nanoid'
+
+const todos = [
+  {
+    id: nanoid(),
+    title: 'Read a book',
+    completed: false,
+  },
+  {
+    id: nanoid(),
+    title: 'Check email',
+    completed: true,
+  },
+  {
+    id: nanoid(),
+    title: 'Buy a milk',
+    completed: false,
+  },
+  {
+    id: nanoid(),
+    title: 'Call John',
+    completed: false,
+  },
+]
+
 const fetchTodos = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos?userId=1')
-  return res.json()
+  return await new Promise((resolve) =>
+    setTimeout(() => {
+      resolve(todos)
+    }, 1000)
+  )
 }
 
 export { fetchTodos }
