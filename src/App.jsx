@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getTodos } from './store/selectors'
 import { fetchTodos, addTodo, deleteTodo } from './store/actions'
+import TodoHeader from './components/TodoHeader'
 import AddTodoForm from './components/AddTodoForm'
 import TodoItem from './components/TodoItem'
 import './App.css'
@@ -16,7 +17,7 @@ const App = () => {
 
   return (
     <div className='todo-container container'>
-      <header className='todo-title title'>Todo list</header>
+      <TodoHeader />
       <AddTodoForm
         addTodo={(newTodoTitle) => dispatch(addTodo(newTodoTitle))}
       />
