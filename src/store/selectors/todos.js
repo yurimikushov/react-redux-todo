@@ -1,3 +1,4 @@
+const isTodosLoading = () => (store) => store.todos.isLoading
 const getTodos = () => (store) => store.todos.data
 
-export { getTodos }
+export { isTodosLoading, getTodos }
