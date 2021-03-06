@@ -4,7 +4,7 @@ import { getTodos } from './store/selectors'
 import { fetchTodos, addTodo, deleteTodo } from './store/actions'
 import TodoHeader from './components/TodoHeader'
 import AddTodoForm from './components/AddTodoForm'
-import TodoItem from './components/TodoItem'
+import TodoItems from './components/TodoItems'
 import './App.css'
 
 const App = () => {
@@ -21,16 +21,10 @@ const App = () => {
       <AddTodoForm
         addTodo={(newTodoTitle) => dispatch(addTodo(newTodoTitle))}
       />
-      <div className='todo-items block'>
-        {todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            id={todo.id}
-            title={todo.title}
-            deleteTodo={() => dispatch(deleteTodo(todo.id))}
-          />
-        ))}
-      </div>
+      <TodoItems
+        todos={todos}
+        deleteTodo={(todoId) => dispatch(deleteTodo(todoId))}
+      />
     </div>
   )
 }
