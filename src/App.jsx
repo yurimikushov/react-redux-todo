@@ -2,6 +2,7 @@ import React from 'react'
 import { useTodosFetching } from './store/hooks'
 import TodoHeader from './components/TodoHeader'
 import AddTodoForm from './containers/AddTodoForm'
+import TodoFilter from './containers/TodoFilter'
 import TodoItems from './containers/TodoItems'
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
     <div className='todo-container container my-3'>
       <TodoHeader />
       <AddTodoForm />
+      <TodoFilter />
       <TodoItems />
     </div>
   )

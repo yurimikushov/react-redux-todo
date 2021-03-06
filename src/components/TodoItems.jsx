@@ -15,6 +15,7 @@ const TodoItems = ({ isLoading, todos, toggleTodo, deleteTodo }) => {
           <TodoItem
             key={todo.id}
             id={todo.id}
+            completed={todo.completed}
             title={todo.title}
             toggleTodo={() => toggleTodo(todo.id)}
             deleteTodo={() => deleteTodo(todo.id)}

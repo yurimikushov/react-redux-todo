@@ -1,0 +1,2 @@
+export const FILTER_MODE_ALL = 'ALL'
+export const FILTER_MODE_DONT_COMPLETED = 'DONT_COMPLETED'

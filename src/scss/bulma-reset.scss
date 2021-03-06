@@ -1,6 +1,9 @@
 $app-max-width: 700px;
+$primary:#00d1b2;
 
 $tablet: $app-max-width;
 $desktop: $app-max-width;
 $widescreen: $app-max-width;
 $fullhd: $app-max-width;
+
+$tabs-link-active-color: $primary;
