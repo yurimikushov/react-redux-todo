@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Loader from './Loader'
 import TodoItem from './TodoItem'
-import { toggleTodo } from '../store/actions'
 
 const TodoItems = ({ isLoading, todos, toggleTodo, deleteTodo }) => {
   if (isLoading) {
