@@ -4,7 +4,6 @@ import { fetchTodos } from './store/actions'
 import TodoHeader from './components/TodoHeader'
 import AddTodoForm from './containers/AddTodoForm'
 import TodoItems from './containers/TodoItems'
-import './App.css'
 
 const App = () => {
   const dispatch = useDispatch()
