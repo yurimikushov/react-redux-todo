@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getTodos } from './store/selectors'
 import { fetchTodos, addTodo, deleteTodo } from './store/actions'
+import AddTodoForm from './components/AddTodoForm'
 import TodoItem from './components/TodoItem'
 import './App.css'
 
 const App = () => {
-  const [newTodoTitle, setNewTodoTitle] = useState('')
   const todos = useSelector(getTodos())
   const dispatch = useDispatch()
-
-  const addTodoHandler = (e) => {
-    e.preventDefault()
-
-    if (!newTodoTitle) {
-      return
-    }
-
-    dispatch(addTodo(newTodoTitle))
-    setNewTodoTitle('')
-  }
 
   useEffect(() => {
     dispatch(fetchTodos())
@@ -28,17 +17,9 @@ const App = () => {
   return (
     <div className='todo-container container'>
       <header className='todo-title title'>Todo list</header>
-      <form>
-        <input
-          className='input'
-          type='text'
-          value={newTodoTitle}
-          onChange={(e) => setNewTodoTitle(e.target.value)}
-        />
-        <button className='' type='submit' onClick={addTodoHandler}>
-          Add
-        </button>
-      </form>
+      <AddTodoForm
+        addTodo={(newTodoTitle) => dispatch(addTodo(newTodoTitle))}
+      />
       <div className='todo-items block'>
         {todos.map((todo) => (
           <TodoItem
