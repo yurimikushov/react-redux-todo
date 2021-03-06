@@ -9,7 +9,7 @@ const TodoItems = ({ isLoading, todos, deleteTodo }) => {
   }
 
   return (
-    <div className='todo-items block'>
+    <div className='todo-items block mx-1'>
       {todos.length > 0 ? (
         todos.map((todo) => (
           <TodoItem

@@ -13,7 +13,7 @@ const App = () => {
   }, [dispatch])
 
   return (
-    <div className='todo-container container'>
+    <div className='todo-container container my-3'>
       <TodoHeader />
       <AddTodoForm />
       <TodoItems />
