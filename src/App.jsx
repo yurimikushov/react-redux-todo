@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { fetchTodos } from './store/actions'
+import React from 'react'
+import { useTodosFetching } from './store/hooks'
 import TodoHeader from './components/TodoHeader'
 import AddTodoForm from './containers/AddTodoForm'
 import TodoItems from './containers/TodoItems'
 
 const App = () => {
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchTodos())
-  }, [dispatch])
+  useTodosFetching()
 
   return (
     <div className='todo-container container my-3'>
