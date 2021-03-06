@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TodoItem = ({ id, title, deleteTodo }) => (
+const TodoItem = ({ title, deleteTodo }) => (
   <div className='todo-item box'>
     <input className='todo-item__completed' type='checkbox' />
     <span className='todo-item__title'>{title}</span>
@@ -13,7 +13,6 @@ const TodoItem = ({ id, title, deleteTodo }) => (
 )
 
 TodoItem.propTypes = {
-  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   deleteTodo: PropTypes.func.isRequired,
 }
