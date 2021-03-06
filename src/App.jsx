@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getTodos } from './store/selectors'
 import { fetchTodos, addTodo, deleteTodo } from './store/actions'
+import TodoItem from './components/TodoItem'
 import './App.css'
 
 const App = () => {
@@ -40,14 +41,12 @@ const App = () => {
       </form>
       <div className='todo-items block'>
         {todos.map((todo) => (
-          <div className='todo-item box' key={todo.id}>
-            <input className='todo-item__completed' type='checkbox' />
-            <span className='todo-item__title'>{todo.title}</span>
-            <button
-              className='todo-item__delete delete is-small'
-              onClick={() => dispatch(deleteTodo(todo.id))}
-            ></button>
-          </div>
+          <TodoItem
+            key={todo.id}
+            id={todo.id}
+            title={todo.title}
+            deleteTodo={() => dispatch(deleteTodo(todo.id))}
+          />
         ))}
       </div>
     </div>
