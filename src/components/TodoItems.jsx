@@ -15,8 +15,8 @@ const TodoItems = ({ isLoading, todos, toggleTodo, deleteTodo }) => {
           <TodoItem
             key={todo.id}
             id={todo.id}
-            completed={todo.completed}
             title={todo.title}
+            completed={todo.completed}
             toggleTodo={() => toggleTodo(todo.id)}
             deleteTodo={() => deleteTodo(todo.id)}
           />
@@ -36,6 +36,7 @@ TodoItems.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
+      completed: PropTypes.bool.isRequired,
     })
   ),
   toggleTodo: PropTypes.func.isRequired,
