@@ -1,10 +1,8 @@
-# React-redux-todo
+# react-redux-todo
 
-Soon..
+This is a simple todo app. Here I improved my knowledge of React, Redux and Bulma CSS framework.
 
-# Features
-
-Soon..
+![Preview](docs/img/preview.png)
 
 # For developers
 
