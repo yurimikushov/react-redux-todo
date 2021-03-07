@@ -1,14 +1,11 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { addTodo } from '../store/actions'
+import { useAddTodo } from '../store/hooks'
 import AddTodoForm from '../components/AddTodoForm'
 
 const AddTodoFormContainer = () => {
-  const dispatch = useDispatch()
+  const addTodo = useAddTodo()
 
-  return (
-    <AddTodoForm addTodo={(newTodoTitle) => dispatch(addTodo(newTodoTitle))} />
-  )
+  return <AddTodoForm addTodo={addTodo} />
 }
 
 export default AddTodoFormContainer

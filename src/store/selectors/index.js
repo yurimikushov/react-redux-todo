@@ -1,2 +1,2 @@
-export { isTodosLoading, getTodos, getDontCompletedTodos } from './todos'
+export { isTodosLoading, getAllTodos, getDontCompletedTodos } from './todos'
 export { getFilterMode } from './filterMode'

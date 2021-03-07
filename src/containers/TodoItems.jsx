@@ -1,29 +1,24 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 import {
-  getFilterMode,
-  isTodosLoading,
-  getTodos,
-  getDontCompletedTodos,
-} from '../store/selectors'
-import { toggleTodo, deleteTodo } from '../store/actions'
-import { FILTER_MODE_ALL } from '../constants'
+  useIsTodosLoading,
+  useTodos,
+  useToggleTodo,
+  useDeleteTodo,
+} from '../store/hooks'
 import TodoItems from '../components/TodoItems'
 
 const TodoItemsContainer = () => {
-  const filterMode = useSelector(getFilterMode())
-  const isLoading = useSelector(isTodosLoading())
-  const todos = useSelector(
-    filterMode === FILTER_MODE_ALL ? getTodos() : getDontCompletedTodos()
-  )
-  const dispatch = useDispatch()
+  const isLoading = useIsTodosLoading()
+  const todos = useTodos()
+  const toggleTodo = useToggleTodo()
+  const deleteTodo = useDeleteTodo()
 
   return (
     <TodoItems
       isLoading={isLoading}
       todos={todos}
-      toggleTodo={(todoId) => dispatch(toggleTodo(todoId))}
-      deleteTodo={(todoId) => dispatch(deleteTodo(todoId))}
+      toggleTodo={toggleTodo}
+      deleteTodo={deleteTodo}
     />
   )
 }

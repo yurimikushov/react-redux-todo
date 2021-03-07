@@ -1,19 +1,11 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { getFilterMode } from '../store/selectors'
-import { setFilterMode } from '../store/actions'
+import { useFilterMode } from '../store/hooks'
 import TodoFilter from '../components/TodoFilter'
 
 const TodoFilterContainer = () => {
-  const filterMode = useSelector(getFilterMode())
-  const dispatch = useDispatch()
+  const [filterMode, setFilterMode] = useFilterMode()
 
-  return (
-    <TodoFilter
-      filterMode={filterMode}
-      setFilterMode={(mode) => dispatch(setFilterMode(mode))}
-    />
-  )
+  return <TodoFilter filterMode={filterMode} setFilterMode={setFilterMode} />
 }
 
 export default TodoFilterContainer
