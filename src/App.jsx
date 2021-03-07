@@ -9,7 +9,7 @@ const App = () => {
   useTodosFetching()
 
   return (
-    <div className='todo-container container my-3'>
+    <div className='container my-3'>
       <TodoHeader />
       <AddTodoForm />
       <TodoFilter />

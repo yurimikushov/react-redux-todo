@@ -16,16 +16,16 @@ const AddTodoForm = ({ addTodo }) => {
   }
 
   return (
-    <form className='add-new-todo-from block is-flex'>
+    <form className='add-todo-form block is-flex'>
       <input
-        className='add-new-todo-from__title input is-primary mr-1'
+        className='add-todo-form__title input is-primary mr-1'
         type='text'
         value={newTodoTitle}
         placeholder='Type a todo'
         onChange={(e) => setNewTodoTitle(e.target.value)}
       />
       <button
-        className='add-new-todo-from__add-btn button is-primary'
+        className='add-todo-form__add-btn button is-primary'
         type='submit'
         onClick={addTodoHandler}
       >

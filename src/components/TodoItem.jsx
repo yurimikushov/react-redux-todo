@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const TodoItem = ({ completed, title, toggleTodo, deleteTodo }) => (
-  <div className='todo-item box is-flex is-justify-content-space-between is-align-items-center my-2'>
+  <li className='todo-item box is-flex is-justify-content-space-between is-align-items-center my-2'>
     <div className='todo-item__content is-flex is-align-items-center'>
       <input
         className='todo-item__completed'
@@ -16,7 +16,7 @@ const TodoItem = ({ completed, title, toggleTodo, deleteTodo }) => (
       className='todo-item__delete-btn delete is-small'
       onClick={deleteTodo}
     />
-  </div>
+  </li>
 )
 
 TodoItem.propTypes = {
