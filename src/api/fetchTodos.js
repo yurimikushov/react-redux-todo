@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid'
+import { delay } from '../utils'
 
 const todos = [
   {
@@ -24,11 +25,9 @@ const todos = [
 ]
 
 const fetchTodos = async () => {
-  return await new Promise((resolve) =>
-    setTimeout(() => {
-      resolve(todos)
-    }, 1000)
-  )
+  await delay(1000)
+
+  return todos
 }
 
 export { fetchTodos }
