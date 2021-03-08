@@ -16,6 +16,7 @@ const TodoFilter = ({
           (filterMode === FILTER_MODE_ALL ? ' is-active' : '')
         }
       >
+        {/* eslint-disable-next-line */}
         <a onClick={() => setFilterMode(FILTER_MODE_ALL)}>All</a>
       </li>
       <li
@@ -24,6 +25,7 @@ const TodoFilter = ({
           (filterMode === FILTER_MODE_DONT_COMPLETED ? ' is-active' : '')
         }
       >
+        {/* eslint-disable-next-line */}
         <a onClick={() => setFilterMode(FILTER_MODE_DONT_COMPLETED)}>
           Don&apos;t completed
         </a>
