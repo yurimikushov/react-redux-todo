@@ -25,7 +25,7 @@ const todos = [
 ]
 
 const fetchTodos = async () => {
-  await delay(1000)
+  await delay(500)
 
   return todos
 }
